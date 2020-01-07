@@ -42,7 +42,7 @@ use crate::signature::*;
 ///
 /// Instances of this secret are automatically overwritten with zeroes when they
 /// fall out of scope.
-#[derive(Zeroize)]
+#[derive(Default, Zeroize)]
 #[zeroize(drop)] // Overwrite secret key material with null bytes when it goes out of scope.
 pub struct SecretKey(pub(crate) [u8; SECRET_KEY_LENGTH]);
 
